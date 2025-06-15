@@ -1,6 +1,7 @@
+flask
 discord.py
 gspread
 oauth2client
 requests
 pytz
-Flask
+python-dotenv
