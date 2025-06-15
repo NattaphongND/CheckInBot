@@ -3,6 +3,7 @@
 
 
 import os
+import json
 import threading
 import datetime
 
@@ -14,6 +15,14 @@ from flask import Flask, jsonify
 from discord.ext import commands
 from oauth2client.service_account import ServiceAccountCredentials
 from dotenv import load_dotenv
+
+
+# 🔸 สร้างไฟล์ credentials.json จาก Environment Variable
+if not os.path.exists("credentials.json"):
+    credentials_raw = os.getenv("GOOGLE_CREDENTIALS")
+    with open("credentials.json", "w") as f:
+        f.write(credentials_raw)
+
 load_dotenv()
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
